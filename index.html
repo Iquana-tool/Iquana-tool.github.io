@@ -4,109 +4,160 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>IQUANA — annotation and quantification for scientific image data</title>
-<meta name="description" content="AI-assisted annotation and quantification of scientific image datasets — hierarchical label spaces, review queues, reproducible measurements. Built at DFKI.">
-<meta name="keywords" content="image annotation tool, scientific image quantification, microscopy annotation software, AI-assisted segmentation, hierarchical labels, image analysis, open source annotation">
+<meta name="description" content="AI-assisted annotation and quantification of scientific image datasets — hierarchical label spaces, review queues, reproducible measurements. Built at DFKI and HIFMB.">
+<meta name="keywords" content="image annotation tool, scientific image quantification, microscopy annotation software, AI-assisted segmentation, hierarchical labels, morphological analysis, coral segmentation, open source annotation">
 <link rel="canonical" href="https://iquana-tool.github.io/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="IQUANA — annotation, quantification and evaluation for scientific image data">
-<meta property="og:description" content="AI-assisted annotation and reproducible quantification of scientific image datasets, with a human correction loop. Built at DFKI.">
+<meta property="og:title" content="IQUANA — annotation and quantification for scientific image data">
+<meta property="og:description" content="AI-assisted annotation and reproducible quantification of scientific image datasets, with a human correction loop. Built at DFKI and HIFMB.">
 <meta property="og:url" content="https://iquana-tool.github.io/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230d7c66'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Georgia,serif'%20font-size='34'%20font-weight='700'%20fill='%23ffffff'%20text-anchor='middle'%3EIQ%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%2314b8a6'/%3E%3Ctext%20x='32'%20y='45'%20font-family='Georgia,serif'%20font-size='34'%20font-weight='700'%20fill='%2304231f'%20text-anchor='middle'%3EIQ%3C/text%3E%3C/svg%3E">
 <style>
+/* Palette mirrors the application's own design tokens (src/styles/theme.js)
+   so the site and the product read as one brand rather than two. */
 :root{
-  --bg:#ffffff; --surface:#f4f7f6; --surface-2:#e9efec; --border:#dae3df;
-  --text:#111d19; --muted:#57685f; --accent:#0d7c66; --accent-soft:#e2f1ec;
-  --on-accent:#ffffff;
-  --code-bg:#101a17; --code-text:#dfeae5;
+  --app:#eef1f5; --p1:#ffffff; --p2:#f8fafc; --canvas:#ffffff;
+  --ln:#d5dce5; --ln2:#b4bfcc;
+  --t1:#0f1720; --t2:#48566a; --t3:#5f6c7e;
+  --ac:#0c7d70; --acS:rgba(20,184,166,.13); --acLn:rgba(20,184,166,.40);
+  --accent:#14b8a6; --onAccent:#04231f;
+  --code-bg:#151b23; --code-text:#dfeae5;
+  --sh:0 1px 2px rgba(15,23,32,.07); --shLg:0 18px 44px rgba(15,23,32,.13);
   --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
   --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#0a1211; --surface:#111b18; --surface-2:#18251f; --border:#243430;
-    --text:#e8f1ec; --muted:#9ab0a6; --accent:#3fbf9f; --accent-soft:#12312a;
-    --on-accent:#04140f;
-    --code-bg:#060d0c; --code-text:#d6e6e0;
+    --app:#0d1117; --p1:#151b23; --p2:#1d242e; --canvas:#080b0e;
+    --ln:#272f3a; --ln2:#3a4553;
+    --t1:#e8edf3; --t2:#aab6c3; --t3:#8b98a6;
+    --ac:#3ddbc7; --acS:rgba(20,184,166,.16); --acLn:rgba(20,184,166,.44);
+    --accent:#14b8a6; --onAccent:#04231f;
+    --code-bg:#080b0e; --code-text:#d6e6e0;
+    --sh:0 1px 2px rgba(0,0,0,.4); --shLg:0 18px 44px rgba(0,0,0,.55);
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0a1211; --surface:#111b18; --surface-2:#18251f; --border:#243430;
-  --text:#e8f1ec; --muted:#9ab0a6; --accent:#3fbf9f; --accent-soft:#12312a;
-  --on-accent:#04140f;
-  --code-bg:#060d0c; --code-text:#d6e6e0;
+  --app:#0d1117; --p1:#151b23; --p2:#1d242e; --canvas:#080b0e;
+  --ln:#272f3a; --ln2:#3a4553;
+  --t1:#e8edf3; --t2:#aab6c3; --t3:#8b98a6;
+  --ac:#3ddbc7; --acS:rgba(20,184,166,.16); --acLn:rgba(20,184,166,.44);
+  --accent:#14b8a6; --onAccent:#04231f;
+  --code-bg:#080b0e; --code-text:#d6e6e0;
+  --sh:0 1px 2px rgba(0,0,0,.4); --shLg:0 18px 44px rgba(0,0,0,.55);
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
+body{margin:0;background:var(--app);color:var(--t1);font-family:var(--sans);
   line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
-a{color:var(--accent);text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+a{color:var(--ac);text-decoration:none}
 a:hover{text-decoration:underline}
 
-nav{border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--bg);z-index:10}
+nav{border-bottom:1px solid var(--ln);position:sticky;top:0;background:var(--app);z-index:20}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:16px}
-.mark{font-family:Georgia,"Times New Roman",serif;font-size:1.32rem;letter-spacing:.02em;color:var(--text)}
-.mark b{color:var(--accent);font-weight:700}
-.mark span{font-weight:400}
+.mark{font-size:1.3rem;font-weight:600;letter-spacing:-.01em;color:var(--t1)}
+.mark b{color:var(--ac);font-weight:700}
 nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;font-size:.93rem;flex-wrap:wrap}
-nav ul a{color:var(--muted)}
-nav ul a:hover{color:var(--accent)}
+nav ul a{color:var(--t2)}
+nav ul a:hover{color:var(--ac)}
 
-header{padding:76px 0 64px;border-bottom:1px solid var(--border);
-  background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%)}
-h1{font-size:clamp(2.1rem,5.2vw,3.2rem);line-height:1.15;margin:0 0 18px;letter-spacing:-.02em;max-width:20ch}
-.lede{font-size:clamp(1.02rem,2.2vw,1.18rem);color:var(--muted);max-width:62ch;margin:0 0 12px}
-.byline{font-size:.92rem;color:var(--muted);margin:0 0 30px}
+header{padding:70px 0 66px;border-bottom:1px solid var(--ln);
+  background:linear-gradient(180deg,var(--acS) 0%,transparent 62%)}
+.hero{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
+@media(min-width:900px){.hero{grid-template-columns:1.02fr .98fr;gap:46px}}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;
+  background:var(--acS);border:1px solid var(--acLn);color:var(--ac);
+  font-size:.78rem;font-weight:600;margin-bottom:20px}
+h1{font-size:clamp(2rem,4.8vw,2.95rem);line-height:1.13;margin:0 0 18px;letter-spacing:-.022em;max-width:19ch}
+.lede{font-size:clamp(1rem,2vw,1.12rem);color:var(--t2);max-width:56ch;margin:0 0 14px}
+.byline{font-size:.9rem;color:var(--t3);margin:0 0 28px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-block;padding:11px 20px;border-radius:8px;font-size:.95rem;font-weight:600;
-  border:1px solid var(--accent);transition:opacity .15s}
-.btn:hover{text-decoration:none;opacity:.88}
-.btn-primary{background:var(--accent);color:var(--on-accent)}
-.btn-ghost{background:transparent;color:var(--accent)}
+.btn{display:inline-block;padding:11px 21px;border-radius:9px;font-size:.95rem;font-weight:600;
+  border:1px solid transparent;transition:filter .15s,background .15s}
+.btn:hover{text-decoration:none;filter:brightness(1.1)}
+.btn-primary{background:var(--accent);color:var(--onAccent);box-shadow:0 4px 14px rgba(20,184,166,.3)}
+.btn-ghost{background:var(--p1);color:var(--t2);border-color:var(--ln)}
+.btn-ghost:hover{color:var(--t1)}
 
-section{padding:60px 0;border-bottom:1px solid var(--border)}
-h2{font-size:1.5rem;margin:0 0 10px;letter-spacing:-.01em}
-.sub{color:var(--muted);margin:0 0 32px;max-width:64ch}
+/* ---- workspace mockup: stands in for a screenshot ---- */
+.shot{border:1px solid var(--ln);border-radius:14px;background:var(--p1);
+  box-shadow:var(--shLg);overflow:hidden}
+.shot-bar{display:flex;align-items:center;gap:6px;padding:11px 15px;
+  border-bottom:1px solid var(--ln);background:var(--p2)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ln2)}
+.shot-path{margin-left:10px;font-size:.72rem;color:var(--t3);font-weight:500;font-family:var(--mono)}
+.shot-body{display:flex;min-height:236px}
+.rail{display:none;flex-direction:column;gap:8px;padding:14px 9px;
+  border-right:1px solid var(--ln);background:var(--p2)}
+@media(min-width:420px){.rail{display:flex}}
+.rail i{width:27px;height:27px;border-radius:6px;display:block;background:var(--well,rgba(128,128,128,.14))}
+.rail i.on{background:var(--acS);box-shadow:inset 0 0 0 1px var(--acLn)}
+.shot-canvas{flex:1;background:var(--canvas);position:relative;min-width:0}
+.shot-canvas svg{display:block;width:100%;height:100%;min-height:236px}
+.objs{display:none;width:136px;flex-direction:column;padding:9px 0;
+  border-left:1px solid var(--ln);background:var(--p2)}
+@media(min-width:620px){.objs{display:flex}}
+.objs h4{margin:0 0 7px;padding:0 13px;font-size:.62rem;font-weight:700;
+  letter-spacing:.07em;text-transform:uppercase;color:var(--t3)}
+.objs div{display:flex;align-items:center;gap:7px;padding:4px 13px;font-size:.71rem;color:var(--t2)}
+.objs span{width:8px;height:8px;border-radius:2px;flex:none}
+
+section{padding:62px 0;border-bottom:1px solid var(--ln)}
+h2{font-size:1.55rem;margin:0 0 10px;letter-spacing:-.015em}
+.sub{color:var(--t2);margin:0 0 34px;max-width:64ch}
 h3{font-size:1.02rem;margin:0 0 6px}
 
-.loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:14px}
-.step{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px}
-.step .n{font-family:var(--mono);font-size:.74rem;color:var(--accent);font-weight:700;
-  background:var(--accent-soft);display:inline-block;padding:2px 8px;border-radius:20px;margin-bottom:9px}
-.step p{margin:0;font-size:.88rem;color:var(--muted)}
+.loop{display:grid;grid-template-columns:repeat(auto-fit,minmax(156px,1fr));gap:14px}
+.step{background:var(--p1);border:1px solid var(--ln);border-radius:12px;padding:17px;box-shadow:var(--sh)}
+.step .n{font-family:var(--mono);font-size:.72rem;color:var(--ac);font-weight:700;
+  background:var(--acS);display:inline-block;padding:2px 9px;border-radius:20px;margin-bottom:9px}
+.step p{margin:0;font-size:.87rem;color:var(--t2)}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(266px,1fr));gap:18px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:20px}
-.card p{margin:0;font-size:.9rem;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(268px,1fr));gap:18px}
+.card{background:var(--p1);border:1px solid var(--ln);border-radius:14px;padding:21px;box-shadow:var(--sh)}
+.card p{margin:0;font-size:.89rem;color:var(--t2)}
+
+.caps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:9px 26px;
+  background:var(--p1);border:1px solid var(--ln);border-radius:14px;padding:24px;box-shadow:var(--sh)}
+.caps p{margin:0;display:flex;align-items:flex-start;gap:9px;font-size:.89rem;color:var(--t2)}
+.caps p::before{content:"";flex:none;width:15px;height:15px;margin-top:5px;border-radius:50%;
+  background:var(--acS);box-shadow:inset 0 0 0 1px var(--acLn)}
 
 pre{background:var(--code-bg);color:var(--code-text);padding:18px 20px;border-radius:10px;
-  overflow-x:auto;font-family:var(--mono);font-size:.86rem;line-height:1.7;margin:0 0 14px}
-code{font-family:var(--mono);font-size:.88em;background:var(--surface-2);
-  padding:1px 5px;border-radius:4px}
+  overflow-x:auto;font-family:var(--mono);font-size:.86rem;line-height:1.7;margin:0 0 16px;
+  border:1px solid var(--ln)}
+code{font-family:var(--mono);font-size:.88em;background:var(--acS);padding:1px 6px;border-radius:4px}
 pre code{background:none;padding:0;font-size:inherit}
 
-.tbl{overflow-x:auto;border:1px solid var(--border);border-radius:10px}
+.tbl{overflow-x:auto;border:1px solid var(--ln);border-radius:12px;background:var(--p1)}
 table{border-collapse:collapse;width:100%;font-size:.9rem;min-width:440px}
-th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--border)}
-th{background:var(--surface);font-weight:600;font-size:.82rem;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--ln)}
+th{background:var(--p2);font-weight:600;font-size:.72rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--t3)}
 tr:last-child td{border-bottom:none}
-td code{background:var(--surface-2)}
 
-.note{background:var(--accent-soft);border-left:3px solid var(--accent);
-  padding:16px 20px;border-radius:0 8px 8px 0;font-size:.92rem}
-.note p{margin:0;color:var(--text)}
-.note p+p{margin-top:10px}
+.note{background:var(--p1);border:1px solid var(--ln);border-left:3px solid var(--accent);
+  padding:20px 24px;border-radius:0 12px 12px 0;font-size:.92rem;box-shadow:var(--sh)}
+.note p{margin:0;color:var(--t2)}
+.note p+p{margin-top:12px}
+.note strong{color:var(--t1)}
 
-footer{padding:40px 0 56px;font-size:.88rem;color:var(--muted)}
-footer a{color:var(--muted);text-decoration:underline}
-footer a:hover{color:var(--accent)}
-.fl{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:12px}
+footer{padding:42px 0 58px;font-size:.88rem;color:var(--t2);text-align:center}
+footer a{color:var(--t2);text-decoration:underline}
+footer a:hover{color:var(--ac)}
+.fmark{font-size:1.15rem;font-weight:600;color:var(--t1);margin-bottom:6px}
+.fmark b{color:var(--ac)}
+.orgs{display:flex;gap:8px 26px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.orgs b{color:var(--ac);font-weight:600}
+.fl{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin:18px 0 14px}
+.fine{color:var(--t3);font-size:.8rem}
 </style>
 </head>
 <body>
 
 <nav><div class="wrap">
-  <div class="mark"><b>IQ</b><span>UANA</span></div>
+  <div class="mark"><b>IQ</b>UANA</div>
   <ul>
     <li><a href="#what">What it does</a></li>
     <li><a href="#features">Features</a></li>
@@ -116,16 +167,56 @@ footer a:hover{color:var(--accent)}
 </div></nav>
 
 <header><div class="wrap">
-  <h1>Annotate, quantify and evaluate scientific image data.</h1>
-  <p class="lede">IQUANA is a research tool for AI-assisted segmentation and annotation of
-  scientific image datasets — with a hierarchical label space, reproducible measurements in
-  physical units, and a human correction loop around every model prediction.</p>
-  <p class="byline"><strong>I</strong>nteractive <strong>QUAN</strong>tification and
-  <strong>A</strong>nnotation · built at <a href="https://www.dfki.de/">DFKI</a></p>
-  <div class="cta">
-    <a class="btn btn-primary" href="#start">Get started</a>
-    <a class="btn btn-ghost" href="https://github.com/Iquana-tool/iquana-tool">View on GitHub</a>
+ <div class="hero">
+  <div>
+    <div class="badge">DFKI × HIFMB collaborative research</div>
+    <h1>Annotate, quantify and evaluate scientific image data.</h1>
+    <p class="lede">IQUANA is a research tool for AI-assisted segmentation and annotation of
+    scientific image datasets — with a hierarchical label space, reproducible measurements in
+    physical units, and a human correction loop around every model prediction.</p>
+    <p class="byline"><strong>I</strong>nteractive <strong>QUAN</strong>tification and
+    <strong>A</strong>nnotation</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#start">Get started</a>
+      <a class="btn btn-ghost" href="https://github.com/Iquana-tool/iquana-tool">View on GitHub</a>
+    </div>
   </div>
+
+  <!-- Stylised replica of the annotation workspace, drawn from the product's own
+       class palette. Stands in for a screenshot until 0.1.0 ships with captures. -->
+  <div class="shot" role="img" aria-label="The IQUANA annotation workspace: a tool rail, an image canvas with three coloured segmentation contours, and a list of annotated objects.">
+    <div class="shot-bar">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="shot-path">reef-survey-04 / annotate</span>
+    </div>
+    <div class="shot-body">
+      <div class="rail"><i></i><i></i><i class="on"></i><i></i><i></i></div>
+      <div class="shot-canvas">
+        <svg viewBox="0 0 200 150" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><radialGradient id="g" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stop-color="#14b8a6" stop-opacity=".14"/>
+            <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+          </radialGradient></defs>
+          <rect width="200" height="150" fill="url(#g)"/>
+          <polygon points="38,58 62,42 88,50 92,78 66,92 40,84"
+                   fill="#14b8a6" fill-opacity=".22" stroke="#14b8a6" stroke-width="1.6"/>
+          <polygon points="128,30 158,26 172,48 162,66 134,64 122,46"
+                   fill="#3b82f6" fill-opacity=".22" stroke="#3b82f6" stroke-width="1.6"/>
+          <polygon points="96,96 118,90 130,108 116,126 94,120"
+                   fill="#f59e0b" fill-opacity=".22" stroke="#f59e0b" stroke-width="1.6"/>
+          <circle cx="66" cy="66" r="2.4" fill="#14b8a6"/>
+          <circle cx="147" cy="46" r="2.4" fill="#3b82f6"/>
+        </svg>
+      </div>
+      <div class="objs">
+        <h4>Objects · 3</h4>
+        <div><span style="background:#14b8a6"></span>Acropora</div>
+        <div><span style="background:#3b82f6"></span>Porites</div>
+        <div><span style="background:#f59e0b"></span>Polyp cluster</div>
+      </div>
+    </div>
+  </div>
+ </div>
 </div></header>
 
 <section id="what"><div class="wrap">
@@ -153,15 +244,15 @@ footer a:hover{color:var(--accent)}
   just the masks to look right.</p>
   <div class="grid">
     <div class="card"><h3>AI-assisted segmentation</h3>
-      <p>Prompted and automatic segmentation backed by foundation models including SAM and
-      DINOv3, with interactive refinement on top of every prediction.</p></div>
+      <p>Prompt with points, boxes, circles or polygons — positive and negative — on top of
+      foundation models including SAM and DINOv3, then refine the result by hand.</p></div>
     <div class="card"><h3>Hierarchical label space</h3>
       <p>Labels nest into parent–child trees, so a class can be refined without discarding
       the annotations above it. An optional LLM assistant drafts the hierarchy from a
       description of your domain.</p></div>
-    <div class="card"><h3>Quantification profiles</h3>
-      <p>Choose which metrics matter for a dataset. Area, perimeter, circularity and
-      diameter ship as standard; the metric registry is extensible.</p></div>
+    <div class="card"><h3>Morphological quantification</h3>
+      <p>Area, perimeter, circularity and diameter per object, selected per dataset through
+      quantification profiles. The metric registry is extensible.</p></div>
     <div class="card"><h3>Review &amp; correction queues</h3>
       <p>Snapshot queues route predictions to reviewers in a chosen order, track what was
       fixed versus deliberately left, and keep model output separable from human edits.</p></div>
@@ -177,6 +268,22 @@ footer a:hover{color:var(--accent)}
     <div class="card"><h3>Multi-user datasets</h3>
       <p>Role-based access with per-dataset membership, so annotators, curators and owners
       see the right surface and provenance stays attributable.</p></div>
+  </div>
+</div></section>
+
+<section id="proof"><div class="wrap">
+  <h2>Proven on reef imagery</h2>
+  <p class="sub">IQUANA was built with marine biologists at HIFMB to segment and measure
+  corals and polyps in reef survey photography — thousands of objects per survey, where
+  hand-drawing every contour was never going to scale. The pipeline is general, but it was
+  shaped against a real dataset and a real measurement question.</p>
+  <div class="caps">
+    <p>Semi-automated segmentation of dense, overlapping structures</p>
+    <p>Point, box, circle and polygon prompting</p>
+    <p>Positive and negative prompts for precise control</p>
+    <p>Multiple overlapping annotations per image</p>
+    <p>Zoom and pan for fine detail work</p>
+    <p>Downloadable quantification reports</p>
   </div>
 </div></section>
 
@@ -210,13 +317,12 @@ cd iquana-tool
 <section id="collab"><div class="wrap">
   <h2>Beyond images</h2>
   <p class="sub">IQUANA is built around image datasets today. The annotation, quantification
-  and review machinery is not inherently two-dimensional, and we are actively exploring
-  what it takes to bring the same loop to other scientific modalities — starting with 1D
-  signals such as powder diffraction patterns.</p>
+  and review machinery is not inherently two-dimensional, and we are actively exploring what
+  it takes to bring the same loop to other scientific modalities.</p>
   <div class="note">
     <p><strong>Interested in your own domain?</strong> We are a small research team at DFKI
-    and we would rather generalise the tool against a real problem than guess at one. If
-    you have a dataset that needs annotation and quantification, or you are interested in a
+    and we would rather generalise the tool against a real problem than guess at one. If you
+    have a dataset that needs annotation and quantification, or you are interested in a
     research collaboration, get in touch.</p>
     <p><a href="mailto:robert.leist@dfki.de">robert.leist@dfki.de</a> ·
     <a href="https://github.com/Iquana-tool/iquana-tool/issues/new/choose">Report a bug or request a feature</a></p>
@@ -224,15 +330,21 @@ cd iquana-tool
 </div></section>
 
 <footer><div class="wrap">
+  <div class="fmark"><b>IQ</b>UANA</div>
+  <div>Interactive quantification and annotation for scientific image data</div>
+  <div class="orgs">
+    <span><b>DFKI</b> — German Research Center for Artificial Intelligence</span>
+    <span><b>HIFMB</b> — Helmholtz Institute for Functional Marine Biodiversity</span>
+  </div>
   <div class="fl">
     <a href="https://github.com/Iquana-tool/iquana-tool">GitHub</a>
     <a href="https://github.com/Iquana-tool/iquana-tool#readme">Documentation</a>
     <a href="https://github.com/Iquana-tool/iquana-tool/issues/new/choose">Issues</a>
     <a href="mailto:robert.leist@dfki.de">Contact</a>
   </div>
-  <div>IQUANA is developed at the <a href="https://www.dfki.de/">German Research Center for
-  Artificial Intelligence (DFKI)</a>. Released under
-  <a href="https://github.com/Iquana-tool/iquana-tool/blob/main/LICENSE">CC BY-NC-SA 4.0</a>.</div>
+  <div class="fine">Released under
+  <a href="https://github.com/Iquana-tool/iquana-tool/blob/main/LICENSE">CC BY-NC-SA 4.0</a>.
+  A collaborative research initiative bridging AI and the natural sciences.</div>
 </div></footer>
 
 </body>
