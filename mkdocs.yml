@@ -15,7 +15,6 @@ site_dir: _build/docs
 
 theme:
   name: material
-  custom_dir: overrides
   language: en
   favicon: assets/img/favicon.svg
   logo: assets/img/logo.svg
