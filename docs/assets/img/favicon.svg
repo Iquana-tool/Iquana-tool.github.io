@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="IQUANA">
+  <!-- Solid accent badge, so the mark reads on both the light and the dark
+       header without needing two files. Matches the landing page favicon. -->
+  <rect width="64" height="64" rx="14" fill="#14b8a6"/>
+  <text x="32" y="45" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="34" font-weight="700" fill="#04231f">IQ</text>
+</svg>

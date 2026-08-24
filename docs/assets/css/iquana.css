@@ -1,0 +1,163 @@
+/* IQUANA documentation theme.
+   The palette is lifted from the landing page, which in turn mirrors the
+   application's own design tokens (frontend-react/src/styles/theme.js), so the
+   product, the site and the docs read as one thing rather than three. */
+
+:root {
+  --iq-accent: #14b8a6;
+  --iq-on-accent: #04231f;
+  --md-code-font: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* ---- dark (default) ---- */
+[data-md-color-scheme="slate"] {
+  --md-hue: 214;
+  --md-default-bg-color: #0d1117;
+  --md-default-bg-color--light: #151b23;
+  --md-default-bg-color--lighter: #1d242e;
+  --md-default-fg-color: #e8edf3;
+  --md-default-fg-color--light: #aab6c3;
+  --md-default-fg-color--lighter: #8b98a6;
+  --md-default-fg-color--lightest: #272f3a;
+
+  --md-primary-fg-color: #151b23;
+  --md-primary-bg-color: #e8edf3;
+  --md-accent-fg-color: #3ddbc7;
+
+  --md-typeset-a-color: #3ddbc7;
+  --md-code-bg-color: #080b0e;
+  --md-code-fg-color: #d6e6e0;
+
+  --iq-border: #272f3a;
+  --iq-border-strong: #3a4553;
+  --iq-surface: #151b23;
+  --iq-accent-soft: rgba(20, 184, 166, 0.16);
+}
+
+/* ---- light ---- */
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: #ffffff;
+  --md-default-fg-color: #0f1720;
+  --md-default-fg-color--light: #48566a;
+  --md-default-fg-color--lighter: #5f6c7e;
+
+  --md-primary-fg-color: #ffffff;
+  --md-primary-bg-color: #0f1720;
+  --md-accent-fg-color: #0c7d70;
+
+  --md-typeset-a-color: #0c7d70;
+  --md-code-bg-color: #f4f7f9;
+  --md-code-fg-color: #16323b;
+
+  --iq-border: #d5dce5;
+  --iq-border-strong: #b4bfcc;
+  --iq-surface: #f8fafc;
+  --iq-accent-soft: rgba(20, 184, 166, 0.13);
+}
+
+/* The header keeps the surface colour rather than a slab of accent — the accent
+   is reserved for things you can act on. */
+.md-header {
+  border-bottom: 1px solid var(--iq-border);
+  box-shadow: none;
+}
+.md-tabs {
+  border-bottom: 1px solid var(--iq-border);
+}
+
+.md-typeset h1,
+.md-typeset h2 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+.md-typeset h1 {
+  color: var(--md-default-fg-color);
+}
+
+/* ---- media: every screenshot and clip sits in the same frame the landing
+   page uses for its workspace mockup, so they read as app surfaces rather
+   than as loose images. ---- */
+.md-typeset figure,
+.md-typeset .iq-media {
+  margin: 1.6em 0;
+}
+.md-typeset .iq-media img,
+.md-typeset .iq-media video,
+.md-typeset figure img,
+.md-typeset figure video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--iq-border);
+  border-radius: 12px;
+  background: var(--iq-surface);
+}
+.md-typeset figcaption {
+  margin-top: 0.65em;
+  font-size: 0.78rem;
+  color: var(--md-default-fg-color--lighter);
+  text-align: left;
+}
+
+/* Placeholder shown where a recording has not been captured yet. Deliberately
+   visible: an empty slot that looks like a design choice never gets filled. */
+.iq-shot-todo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 190px;
+  padding: 26px 22px;
+  border: 1px dashed var(--iq-border-strong);
+  border-radius: 12px;
+  background: var(--iq-surface);
+  color: var(--md-default-fg-color--lighter);
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Keyboard keys in the shortcut reference */
+.md-typeset kbd {
+  background: var(--iq-surface);
+  border: 1px solid var(--iq-border-strong);
+  border-radius: 5px;
+  box-shadow: none;
+  color: var(--md-default-fg-color--light);
+  font-size: 0.75em;
+  padding: 2px 6px;
+}
+
+/* Cards on the section index pages */
+.iq-cards {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin: 1.4em 0;
+}
+.iq-cards > a {
+  display: block;
+  padding: 16px 18px;
+  border: 1px solid var(--iq-border);
+  border-radius: 11px;
+  background: var(--iq-surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.iq-cards > a:hover {
+  border-color: var(--iq-accent);
+  transform: translateY(-1px);
+}
+.iq-cards strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--md-default-fg-color);
+}
+.iq-cards span {
+  font-size: 0.8rem;
+  color: var(--md-default-fg-color--light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iq-cards > a { transition: none; }
+}

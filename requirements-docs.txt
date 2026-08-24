@@ -1,0 +1,3 @@
+# Documentation toolchain. Pinned so a rebuild months from now produces the
+# same pages; bump deliberately.
+mkdocs-material==9.5.44

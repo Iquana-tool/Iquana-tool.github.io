@@ -1,0 +1,145 @@
+site_name: IQUANA
+site_description: >-
+  Documentation for IQUANA — AI-assisted annotation, quantification and analysis
+  of scientific image datasets.
+site_url: https://iquana-tool.github.io/docs/
+site_author: DFKI
+copyright: Built at DFKI in partnership with HIFMB
+
+repo_url: https://github.com/Iquana-tool/iquana-tool
+repo_name: Iquana-tool/iquana-tool
+edit_uri: ""
+
+docs_dir: docs
+site_dir: _build/docs
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  favicon: assets/img/favicon.svg
+  logo: assets/img/logo.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
+  # Dark is the default: every screenshot and clip in these docs is recorded
+  # against the app's dark theme, so the page around them matches out of the
+  # box. The toggle stays available for anyone who prefers light.
+  # Dark is the default for everyone on first visit, not merely for people whose
+  # system asks for it: every screenshot and clip in these docs is recorded
+  # against the app's dark theme, so the page around them has to match. The
+  # toggle still lets a reader switch to light and that choice is remembered.
+  palette:
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tooltips
+
+extra_css:
+  - assets/css/iquana.css
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+
+extra:
+  homepage: https://iquana-tool.github.io/
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Iquana-tool
+      name: IQUANA on GitHub
+    - icon: fontawesome/solid/envelope
+      link: mailto:robert.leist@dfki.de
+      name: Contact the team
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - getting-started/index.md
+      - Install: getting-started/install.md
+      - First run: getting-started/first-run.md
+      - Configuration: getting-started/configuration.md
+      - Updating: getting-started/updating.md
+  - Concepts:
+      - concepts/index.md
+      - Datasets and metadata: concepts/datasets.md
+      - Label hierarchy: concepts/labels.md
+      - Objects and annotations: concepts/objects.md
+      - Calibration: concepts/calibration.md
+      - Quantification: concepts/quantification.md
+      - Review and correction: concepts/review.md
+      - Roles and permissions: concepts/roles.md
+  - Guides:
+      - guides/index.md
+      - Create a dataset: guides/create-a-dataset.md
+      - Build a label hierarchy: guides/build-a-label-hierarchy.md
+      - Annotate with AI: guides/annotate-with-ai.md
+      - Draw and refine manually: guides/draw-and-refine.md
+      - Calibrate to physical units: guides/calibrate.md
+      - Run batch inference: guides/batch-inference.md
+      - Review and correct: guides/review-and-correct.md
+      - Quantify and export: guides/quantify-and-export.md
+      - Train a model: guides/train-a-model.md
+      - Manage access: guides/manage-access.md
+  - Reference:
+      - reference/index.md
+      - Keyboard shortcuts: reference/shortcuts.md
+      - Metrics: reference/metrics.md
+      - Services and ports: reference/services.md
+      - Command line: reference/cli.md
+  - Operations:
+      - operations/index.md
+      - Troubleshooting: operations/troubleshooting.md
+      - GPU and CUDA: operations/gpu.md
+  - About:
+      - about/index.md
+      - Citing IQUANA: about/citation.md
+      - Contributing: about/contributing.md
