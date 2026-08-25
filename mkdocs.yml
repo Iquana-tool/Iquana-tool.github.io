@@ -60,6 +60,12 @@ theme:
 
 extra_css:
   - assets/css/iquana.css
+  - assets/vendor/asciinema-player.css
+
+# The player library must load before the script that mounts it.
+extra_javascript:
+  - assets/vendor/asciinema-player.min.js
+  - assets/js/iquana-cast.js
 
 markdown_extensions:
   - abbr

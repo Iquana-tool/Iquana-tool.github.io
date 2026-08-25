@@ -161,3 +161,31 @@
 @media (prefers-reduced-motion: reduce) {
   .iq-cards > a { transition: none; }
 }
+
+/* --- asciinema player ---------------------------------------------------- */
+
+/* Framed to match the recording slots and figures around it, so a terminal
+   embed sits in the page the same way a screenshot does. The player sizes
+   itself from the cast's own dimensions (fit: "width"), so no fixed height. */
+.iq-cast {
+  margin: 1.2rem 0 0.4rem;
+  border: 1px solid var(--iq-border-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0b0e14;
+}
+
+/* The player ships its own light/dark handling, but the surrounding chrome is
+   ours: keep the frame dark in both schemes rather than letting a light page
+   put a white border around a black terminal. */
+.iq-cast .ap-player {
+  padding: 10px 12px;
+}
+
+.iq-caption {
+  display: block;
+  margin: 0 0 1.4rem;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--md-default-fg-color--light);
+}

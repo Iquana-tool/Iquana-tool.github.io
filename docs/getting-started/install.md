@@ -56,12 +56,12 @@ and training run on the CPU, which is slow enough to change how you work. See
 ./install.sh --no-start      set everything up, but do not start the services
 ```
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>install-cast</code></strong><br>
-  asciinema cast of <code>./install.sh</code> answering the real prompts through to
-  <code>localhost:3000</code>.<br>
-  ~2 min · terminal only · embedded as an asciinema player, not a video file</span>
-</div>
+<div class="iq-cast" data-cast="../assets/media/install.cast"></div>
+
+<figcaption class="iq-caption">
+A real install, recorded with <code>asciinema</code>. The text is selectable —
+you can copy any command straight out of the terminal above.
+</figcaption>
 
 ## What gets installed where
 
