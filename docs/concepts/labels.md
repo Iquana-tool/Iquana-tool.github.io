@@ -15,6 +15,12 @@ annotated as `coral` stays valid and stays queryable as `coral`; the new
 annotations are simply more specific. **A class can be refined without discarding
 the annotations above it.**
 
+<figure>
+--8<-- "assets/img/label-hierarchy.svg"
+<figcaption>One label tree, two levels of refinement deep. Nothing annotated
+against a parent is invalidated by adding a child beneath it.</figcaption>
+</figure>
+
 The hierarchy is also what makes parent–child object relationships meaningful —
 see [Objects and annotations](objects.md) and the `n_children` metric in the
 [metric reference](../reference/metrics.md).

@@ -1,10 +1,32 @@
 # About IQUANA
 
-**I**ntelligent **QUAN**tification, **A**nnotation and **A**nalysis.
+**I**ntelligent **QU**antification, **AN**notation and **A**nalysis.
 
 IQUANA is a research tool built at [DFKI](https://www.dfki.de/) in partnership
 with [HIFMB](https://hifmb.de/), for AI-assisted segmentation, annotation and
 quantification of scientific image datasets.
+
+## The name
+
+The letters map onto the words like this, and the capitalisation is part of the
+name rather than decoration:
+
+| Letters | Word |
+|---|---|
+| **I** | **I**ntelligent — also read as **I**nteractive or **I**maging |
+| **QU** | **QU**antification |
+| **AN** | **AN**notation |
+| **A** | **A**nalysis |
+
+The **I** is deliberately more than one word. The tool is intelligent in that it
+puts models behind the work, interactive in that a human stays in the loop around
+every prediction, and about imaging because that is what it measures — and none
+of the three is the whole story on its own. The landing page turns the reading
+over on purpose.
+
+When writing it out, keep the split as **I** · **QU** · **AN** · **A**. Writing
+it as *QUANtification, Annotation* is wrong: it borrows the **AN** from the wrong
+word and leaves *annotation* unaccounted for.
 
 ## Where it came from
 

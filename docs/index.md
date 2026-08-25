@@ -4,7 +4,7 @@ title: IQUANA documentation
 
 # IQUANA documentation
 
-**I**ntelligent **QUAN**tification, **A**nnotation and **A**nalysis — a tool for
+**I**ntelligent **QU**antification, **AN**notation and **A**nalysis — a tool for
 AI-assisted segmentation, annotation and quantification of scientific image
 datasets, built at [DFKI](https://www.dfki.de/) in partnership with
 [HIFMB](https://hifmb.de/).

@@ -25,7 +25,9 @@ relational metric. IQUANA tracks this per tier and recomputes only what actually
 went stale.
 
 The full list, with keys, descriptions and unit kinds, is in the
-[metric reference](../reference/metrics.md). The registry is extensible — adding
+[metric reference](../reference/metrics.md) — which also
+[draws the four geometry metrics](../reference/metrics.md#geometry) on a single
+contour, if the names are easier to grasp as a picture. The registry is extensible — adding
 a metric is adding a class, not changing the schema.
 
 ## Quantification profiles

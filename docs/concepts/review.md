@@ -30,6 +30,12 @@ confident about first, so reviewer time goes where it changes the most.
 
 A reviewed object ends in one of two resolutions:
 
+<figure>
+--8<-- "assets/img/review-states.svg"
+<figcaption>The states a prediction moves through. Both terminal resolutions are
+recorded outcomes - <code>wont_fix</code> is an answer, not an absence of one.</figcaption>
+</figure>
+
 | Resolution | Meaning |
 |---|---|
 | **fixed** | it was wrong, and it has been corrected |

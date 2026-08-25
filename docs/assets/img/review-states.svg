@@ -1,0 +1,52 @@
+<svg class="iq-states" viewBox="0 0 980 320" role="img" xmlns="http://www.w3.org/2000/svg"
+     aria-label="How a prediction moves through review: it is queued into a snapshot, then
+     approved, or rejected. A rejected object resolves either as fixed, meaning it was
+     corrected, or as wont_fix, meaning a human looked at it and chose to leave it. A review
+     can also be revoked, sending the object back to the queue.">
+  <style>
+    .iq-states text{font-family:var(--md-text-font, system-ui), system-ui, sans-serif}
+    .iq-states .bx{fill:var(--iq-surface);stroke:var(--iq-border-strong);stroke-width:1.4}
+    .iq-states .bx-end{fill:var(--iq-accent-soft);stroke:var(--iq-accent);stroke-width:1.6}
+    .iq-states .nm{font-size:14.5px;font-weight:700;fill:var(--md-default-fg-color)}
+    .iq-states .mono{font-family:var(--md-code-font, monospace), monospace;font-size:14.5px;
+      font-weight:700;fill:var(--md-default-fg-color)}
+    .iq-states .sub{font-size:11.5px;fill:var(--md-default-fg-color--light)}
+    .iq-states .edge{stroke:var(--iq-border-strong);stroke-width:1.6;fill:none}
+    .iq-states .head{fill:var(--iq-border-strong)}
+    .iq-states .lbl{font-size:11.5px;font-weight:600;fill:var(--md-default-fg-color--light)}
+  </style>
+  <rect class="bx" x="30" y="140" width="170" height="60" rx="10"/>
+  <text class="nm" x="115" y="166" text-anchor="middle">prediction</text>
+  <text class="sub" x="115" y="185" text-anchor="middle">model output</text>
+  <rect class="bx" x="280" y="140" width="200" height="60" rx="10"/>
+  <text class="nm" x="380" y="164" text-anchor="middle">in a review queue</text>
+  <text class="sub" x="380" y="183" text-anchor="middle">a snapshot: fixed list and order</text>
+  <rect class="bx" x="580" y="56" width="150" height="56" rx="10"/>
+  <text class="nm" x="655" y="80" text-anchor="middle">approved</text>
+  <text class="sub" x="655" y="98" text-anchor="middle">looked right</text>
+  <rect class="bx" x="580" y="196" width="150" height="56" rx="10"/>
+  <text class="nm" x="655" y="220" text-anchor="middle">rejected</text>
+  <text class="sub" x="655" y="238" text-anchor="middle">something was wrong</text>
+  <rect class="bx-end" x="790" y="170" width="140" height="48" rx="10"/>
+  <text class="mono" x="860" y="192" text-anchor="middle">fixed</text>
+  <text class="sub" x="860" y="208" text-anchor="middle">corrected</text>
+  <rect class="bx-end" x="790" y="244" width="140" height="48" rx="10"/>
+  <text class="mono" x="860" y="266" text-anchor="middle">wont_fix</text>
+  <text class="sub" x="860" y="282" text-anchor="middle">left deliberately</text>
+  <path class="edge" d="M 200 170 L 274 170"/>
+  <polygon class="head" points="280,170 270,165 270,175"/>
+  <text class="lbl" x="237" y="160" text-anchor="middle">queued</text>
+  <path class="edge" d="M 480 158 L 520 158 L 520 84 L 574 84"/>
+  <polygon class="head" points="580,84 570,79 570,89"/>
+  <text class="lbl" x="528" y="120">approve</text>
+  <path class="edge" d="M 480 182 L 520 182 L 520 224 L 574 224"/>
+  <polygon class="head" points="580,224 570,219 570,229"/>
+  <text class="lbl" x="528" y="206">reject</text>
+  <path class="edge" d="M 730 210 L 760 210 L 760 194 L 784 194"/>
+  <polygon class="head" points="790,194 780,189 780,199"/>
+  <path class="edge" d="M 730 238 L 760 238 L 760 268 L 784 268"/>
+  <polygon class="head" points="790,268 780,263 780,273"/>
+  <path class="edge" d="M 655 56 L 655 26 L 380 26 L 380 134"/>
+  <polygon class="head" points="380,140 375,130 385,130"/>
+  <text class="lbl" x="518" y="20" text-anchor="middle">revoke</text>
+</svg>

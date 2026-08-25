@@ -11,7 +11,7 @@ If IQUANA contributed to work you are publishing, please cite it.
 An interim reference:
 
 ```text
-IQUANA - Intelligent Quantification, Annotation and Analysis.
+IQUANA - Intelligent QUantification, ANnotation and Analysis.
 German Research Center for Artificial Intelligence (DFKI),
 in partnership with the Helmholtz Institute for Functional
 Marine Biodiversity (HIFMB).

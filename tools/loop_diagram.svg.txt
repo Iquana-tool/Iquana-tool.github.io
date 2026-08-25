@@ -1,0 +1,80 @@
+<!-- The loop, drawn. The five steps are a pipeline, but the thing that makes it a
+     loop rather than a queue is the arc: corrections are what the next model is
+     fine-tuned on. Stating that visually is the whole point of the section, so the
+     arc is the emphasised element, not decoration.
+     Hidden on narrow screens - the cards below carry the same content in a form
+     that survives the width. -->
+  <svg class="loopviz" viewBox="0 0 1000 300" role="img"
+       aria-label="The IQUANA loop: upload, predict, correct, quantify and export run in
+       sequence, and a feedback arc runs from correct back to predict, because corrected
+       annotations are what the next model is fine-tuned on.">
+    <style>
+      .loopviz text{font-family:var(--sans)}
+      .loopviz .box{fill:var(--p1);stroke:var(--ln);stroke-width:1.5}
+      .loopviz .num{font-family:var(--mono);font-size:13px;font-weight:700;fill:var(--ac)}
+      .loopviz .nm{font-size:19px;font-weight:600;fill:var(--t1)}
+      .loopviz .conn{stroke:var(--ln2);stroke-width:2;fill:none}
+      .loopviz .arc{stroke:var(--accent);stroke-width:2.5;fill:none}
+      .loopviz .arclbl{font-size:14px;font-weight:600;fill:var(--ac)}
+      .loopviz .head{fill:var(--ln2)}
+      .loopviz .archead{fill:var(--accent)}
+
+      @keyframes iqBox{
+        0%,6%   {fill:var(--p1); stroke:var(--ln)}
+        10%,15% {fill:var(--acS);stroke:var(--acLn)}
+        20%,100%{fill:var(--p1); stroke:var(--ln)}
+      }
+      @keyframes iqTxt{
+        0%,6%   {fill:var(--t1)}
+        10%,15% {fill:var(--ac)}
+        20%,100%{fill:var(--t1)}
+      }
+      /* Continuous drift along the connectors: the pipeline is always moving. */
+      @keyframes iqFlow{to{stroke-dashoffset:-24}}
+      /* The arc brightens just after Correct lights up. */
+      @keyframes iqArc{
+        0%,38%  {opacity:.32}
+        46%,58% {opacity:1}
+        68%,100%{opacity:.32}
+      }
+      .loopviz .box{animation:iqBox 5s infinite}
+      .loopviz .nm{animation:iqTxt 5s infinite}
+      .loopviz .conn{stroke-dasharray:6 6;animation:iqFlow 1.4s linear infinite}
+      .loopviz .arc,.loopviz .arclbl,.loopviz .archead{animation:iqArc 5s infinite}
+      .loopviz .n1 .box,.loopviz .n1 .nm{animation-delay:0s}
+      .loopviz .n2 .box,.loopviz .n2 .nm{animation-delay:.65s}
+      .loopviz .n3 .box,.loopviz .n3 .nm{animation-delay:1.3s}
+      .loopviz .n4 .box,.loopviz .n4 .nm{animation-delay:1.95s}
+      .loopviz .n5 .box,.loopviz .n5 .nm{animation-delay:2.6s}
+      @media(prefers-reduced-motion:reduce){
+        .loopviz *{animation:none!important}
+        .loopviz .arc,.loopviz .arclbl,.loopviz .archead{opacity:.75}
+      }
+    </style>
+    <g class="nd n1"><rect class="box" x="30" y="100" width="148" height="74" rx="12"/>
+      <text class="num" x="104" y="128" text-anchor="middle">01</text>
+      <text class="nm"  x="104" y="152" text-anchor="middle">Upload</text></g>
+    <g class="nd n2"><rect class="box" x="228" y="100" width="148" height="74" rx="12"/>
+      <text class="num" x="302" y="128" text-anchor="middle">02</text>
+      <text class="nm"  x="302" y="152" text-anchor="middle">Predict</text></g>
+    <g class="nd n3"><rect class="box" x="426" y="100" width="148" height="74" rx="12"/>
+      <text class="num" x="500" y="128" text-anchor="middle">03</text>
+      <text class="nm"  x="500" y="152" text-anchor="middle">Correct</text></g>
+    <g class="nd n4"><rect class="box" x="624" y="100" width="148" height="74" rx="12"/>
+      <text class="num" x="698" y="128" text-anchor="middle">04</text>
+      <text class="nm"  x="698" y="152" text-anchor="middle">Quantify</text></g>
+    <g class="nd n5"><rect class="box" x="822" y="100" width="148" height="74" rx="12"/>
+      <text class="num" x="896" y="128" text-anchor="middle">05</text>
+      <text class="nm"  x="896" y="152" text-anchor="middle">Export</text></g>
+    <path class="conn" d="M 184 137 L 216 137"/>
+    <polygon class="head" points="222,137 213,132 213,142"/>
+    <path class="conn" d="M 382 137 L 414 137"/>
+    <polygon class="head" points="420,137 411,132 411,142"/>
+    <path class="conn" d="M 580 137 L 612 137"/>
+    <polygon class="head" points="618,137 609,132 609,142"/>
+    <path class="conn" d="M 778 137 L 810 137"/>
+    <polygon class="head" points="816,137 807,132 807,142"/>
+    <path class="arc" d="M 500 176 C 500 266, 302 266, 302 184"/>
+    <polygon class="archead" points="302,176 297,186 307,186"/>
+    <text class="arclbl" x="401" y="268" text-anchor="middle">fine-tune on corrections</text>
+  </svg>

@@ -2,6 +2,12 @@
 
 `./iquana.sh status` shows what is running, on which port, and at which commit.
 
+<figure>
+--8<-- "assets/img/architecture.svg"
+<figcaption>The eight processes and how they reach each other. Everything except
+your browser runs on the machine you installed on.</figcaption>
+</figure>
+
 | Service | What it does | Default port |
 |---|---|---|
 | `frontend` | the web UI you annotate in | 3000 |

@@ -1,0 +1,77 @@
+<svg class="iq-arch" viewBox="0 0 940 500" role="img" xmlns="http://www.w3.org/2000/svg"
+     aria-label="IQUANA runs as eight processes. The browser loads the frontend and calls
+     the backend over REST. The backend talks to PostgreSQL, MLflow and the AI service, and
+     enqueues jobs on Redis. Two Celery workers consume that queue: backend-worker runs
+     batch inference, ai-worker runs model training and logs to MLflow.">
+  <style>
+    .iq-arch text{font-family:var(--md-text-font, system-ui), system-ui, sans-serif}
+    .iq-arch .bx{fill:var(--iq-surface);stroke:var(--iq-border-strong);stroke-width:1.4}
+    .iq-arch .bx-a{fill:var(--iq-accent-soft);stroke:var(--iq-accent);stroke-width:1.6}
+    .iq-arch .nm{font-size:15px;font-weight:700;fill:var(--md-default-fg-color)}
+    .iq-arch .sub{font-size:11.5px;fill:var(--md-default-fg-color--light)}
+    .iq-arch .port{font-family:var(--md-code-font, monospace), monospace;fill:var(--iq-accent);font-weight:700}
+    .iq-arch .edge{stroke:var(--iq-border-strong);stroke-width:1.6;fill:none}
+    .iq-arch .head{fill:var(--iq-border-strong)}
+    .iq-arch .q{stroke:var(--iq-accent);stroke-width:1.6;fill:none;stroke-dasharray:5 4}
+    .iq-arch .qhead{fill:var(--iq-accent)}
+    .iq-arch .lbl{font-size:11px;fill:var(--md-default-fg-color--light)}
+  </style>
+  <rect class="bx-a" x="380" y="24" width="180" height="64" rx="11"/>
+  <text class="nm" x="470" y="50" text-anchor="middle">Your browser</text>
+  <text class="sub" x="470" y="69" text-anchor="middle">where you annotate</text>
+  <rect class="bx" x="60" y="140" width="180" height="64" rx="11"/>
+  <text class="nm" x="150" y="166" text-anchor="middle">frontend</text>
+  <text class="sub" x="150" y="185" text-anchor="middle"><tspan class="port">:3000</tspan> the web UI</text>
+  <rect class="bx" x="380" y="140" width="180" height="64" rx="11"/>
+  <text class="nm" x="470" y="166" text-anchor="middle">backend</text>
+  <text class="sub" x="470" y="185" text-anchor="middle"><tspan class="port">:8000</tspan> REST API, exports</text>
+  <rect class="bx" x="700" y="140" width="180" height="64" rx="11"/>
+  <text class="nm" x="790" y="166" text-anchor="middle">ai-service</text>
+  <text class="sub" x="790" y="185" text-anchor="middle"><tspan class="port">:8004</tspan> model inference</text>
+  <rect class="bx" x="60" y="256" width="180" height="64" rx="11"/>
+  <text class="nm" x="150" y="282" text-anchor="middle">postgres</text>
+  <text class="sub" x="150" y="301" text-anchor="middle"><tspan class="port">:5432</tspan> container</text>
+  <rect class="bx" x="380" y="256" width="180" height="64" rx="11"/>
+  <text class="nm" x="470" y="282" text-anchor="middle">redis</text>
+  <text class="sub" x="470" y="301" text-anchor="middle"><tspan class="port">:6379</tspan> broker, container</text>
+  <rect class="bx" x="700" y="256" width="180" height="64" rx="11"/>
+  <text class="nm" x="790" y="282" text-anchor="middle">mlflow</text>
+  <text class="sub" x="790" y="301" text-anchor="middle"><tspan class="port">:5000</tspan> runs, model registry</text>
+  <rect class="bx" x="380" y="372" width="180" height="64" rx="11"/>
+  <text class="nm" x="470" y="398" text-anchor="middle">backend-worker</text>
+  <text class="sub" x="470" y="417" text-anchor="middle">batch inference runs</text>
+  <rect class="bx" x="700" y="372" width="180" height="64" rx="11"/>
+  <text class="nm" x="790" y="398" text-anchor="middle">ai-worker</text>
+  <text class="sub" x="790" y="417" text-anchor="middle">model training</text>
+  <path class="edge" d="M 420 88 L 420 112 L 150 112 L 150 140"/>
+  <polygon class="head" points="150,140 145,130 155,130"/>
+  <text class="lbl" x="270" y="107" text-anchor="middle">loads the app</text>
+  <path class="edge" d="M 500 88 L 500 140"/>
+  <polygon class="head" points="500,140 495,130 505,130"/>
+  <text class="lbl" x="510" y="116">REST</text>
+  <path class="edge" d="M 560 172 L 700 172"/>
+  <polygon class="head" points="700,172 690,167 690,177"/>
+  <text class="lbl" x="630" y="164" text-anchor="middle">inference</text>
+  <path class="edge" d="M 380 190 L 300 190 L 300 288 L 240 288"/>
+  <polygon class="head" points="240,288 250,283 250,293"/>
+  <path class="q" d="M 470 204 L 470 256"/>
+  <polygon class="qhead" points="470,256 465,246 475,246"/>
+  <text class="lbl" x="482" y="234">enqueue</text>
+  <path class="edge" d="M 560 190 L 640 190 L 640 288 L 700 288"/>
+  <polygon class="head" points="700,288 690,283 690,293"/>
+  <path class="q" d="M 470 320 L 470 372"/>
+  <polygon class="qhead" points="470,372 465,362 475,362"/>
+  <text class="lbl" x="482" y="350">consume</text>
+  <path class="q" d="M 560 300 L 660 300 L 660 404 L 700 404"/>
+  <polygon class="qhead" points="700,404 690,399 690,409"/>
+  <path class="edge" d="M 790 204 L 790 256"/>
+  <polygon class="head" points="790,256 785,246 795,246"/>
+  <path class="edge" d="M 880 404 L 910 404 L 910 288 L 880 288"/>
+  <polygon class="head" points="880,288 890,283 890,293"/>
+  <path class="edge" d="M 40 468 L 84 468"/>
+  <polygon class="head" points="90,468 80,463 80,473"/>
+  <text class="lbl" x="100" y="472">HTTP request</text>
+  <path class="q" d="M 240 468 L 284 468"/>
+  <polygon class="qhead" points="290,468 280,463 280,473"/>
+  <text class="lbl" x="300" y="472">job queue, via Redis</text>
+</svg>

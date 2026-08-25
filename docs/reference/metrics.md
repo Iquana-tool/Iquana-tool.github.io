@@ -13,6 +13,13 @@ unaffected by it.
 
 Computed from the contour alone.
 
+<figure>
+--8<-- "assets/img/metric-explainer.svg"
+<figcaption>The four geometry metrics on one contour. The dashed chord is the
+genuinely farthest pair of points on this outline, and 0.70 is its real
+circularity — both are computed from the shape drawn, not sketched.</figcaption>
+</figure>
+
 | Key | Name | Unit kind | Description |
 |---|---|---|---|
 | `area` | Area | area | Enclosed area of the contour polygon. |
