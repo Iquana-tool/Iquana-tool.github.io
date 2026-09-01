@@ -1,7 +1,7 @@
 <svg class="iq-tree" viewBox="0 0 760 320" role="img" xmlns="http://www.w3.org/2000/svg"
-     aria-label="A label hierarchy: coral is the root, with acropora and porites nested
-     under it, and acropora_digitifera nested under acropora. Refining a class this way
-     keeps the annotations already made against the parent valid.">
+     aria-label="A label hierarchy: cell is the root, with nucleus and membrane nested
+     under it as its parts, and nucleolus nested under nucleus. Nesting declares what may
+     be annotated inside what.">
   <style>
     .iq-tree text{font-family:var(--md-text-font, system-ui), system-ui, sans-serif}
     .iq-tree .bx{fill:var(--iq-surface);stroke:var(--iq-border-strong);stroke-width:1.4}
@@ -18,22 +18,22 @@
   <path class="spine" d="M 60 78 L 60 264 M 60 124 L 110 124 M 60 264 L 110 264"/>
   <path class="spine" d="M 130 148 L 130 194 M 130 194 L 180 194"/>
   <rect class="bx-root" x="40" y="30" width="200" height="48" rx="9"/>
-  <text class="nm" x="58" y="52">coral</text>
-  <text class="tag" x="58" y="68">the class you started with</text>
+  <text class="nm" x="58" y="52">cell</text>
+  <text class="tag" x="58" y="68">the containing object</text>
   <rect class="bx" x="110" y="100" width="200" height="48" rx="9"/>
-  <text class="nm" x="128" y="122">acropora</text>
-  <text class="tag" x="128" y="138">added later, as a refinement</text>
+  <text class="nm" x="128" y="122">nucleus</text>
+  <text class="tag" x="128" y="138">part of a cell</text>
   <rect class="bx" x="180" y="170" width="200" height="48" rx="9"/>
-  <text class="nm" x="198" y="192">acropora_digitifera</text>
-  <text class="tag" x="198" y="208">refined again, no limit</text>
+  <text class="nm" x="198" y="192">nucleolus</text>
+  <text class="tag" x="198" y="208">part of a nucleus, no depth limit</text>
   <rect class="bx" x="110" y="240" width="200" height="48" rx="9"/>
-  <text class="nm" x="128" y="262">porites</text>
-  <text class="tag" x="128" y="278">a sibling of acropora</text>
+  <text class="nm" x="128" y="262">membrane</text>
+  <text class="tag" x="128" y="278">another part of a cell</text>
   <rect class="panel" x="420" y="52" width="310" height="212" rx="12"/>
-  <text class="ph" x="444" y="84">Refining never costs you work</text>
-  <text class="pt" x="444" y="110">Objects annotated <tspan class="code">coral</tspan> before</text>
-  <text class="pt" x="444" y="130"><tspan class="code">acropora</tspan> existed are still valid,</text>
-  <text class="pt" x="444" y="150">and still queryable as <tspan class="code">coral</tspan>.</text>
+  <text class="ph" x="444" y="84">Nesting declares containment</text>
+  <text class="pt" x="444" y="110">An object labelled <tspan class="code">nucleus</tspan> may</text>
+  <text class="pt" x="444" y="130">only be annotated inside an object</text>
+  <text class="pt" x="444" y="150">labelled <tspan class="code">cell</tspan>.</text>
   <text class="ph" x="444" y="186">Names are unique dataset-wide</text>
   <text class="pt" x="444" y="212">Not merely among siblings. Two</text>
   <text class="pt" x="444" y="232">parents cannot both own a child</text>

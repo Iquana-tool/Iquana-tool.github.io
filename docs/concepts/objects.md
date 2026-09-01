@@ -23,8 +23,10 @@ lets you count polyps within a colony, or measure the area of a structure and th
 structures inside it, and it is what the `n_children` metric reads.
 
 Parent–child links between *objects* are a different thing from parent–child
-links between *labels*. The [label hierarchy](labels.md) says what kinds of thing
-exist; object parentage says which particular things contain which.
+links between *labels*. The [label hierarchy](labels.md) declares which kinds of
+thing may contain which; object parentage records which particular things
+actually do. The two are tied together by one rule: an object's label must be a
+direct child of the label on its parent object.
 
 ## Overlapping objects
 

@@ -2,34 +2,47 @@
 
 Labels in IQUANA nest into parent–child trees rather than sitting in a flat list.
 
-## Why nesting matters
+## Nesting means "part of"
 
-The usual failure mode of a flat label space is that you learn something halfway
-through annotating. You started with `coral`, and now you need to distinguish
-genera. In a flat scheme that means either re-annotating everything, or
-maintaining `coral`, `coral_acropora`, `coral_porites` as unrelated strings that
-only a human knows are related.
+A child label is **a part of** its parent — not a kind of it. `nucleus` nested
+under `cell` reads *a nucleus is part of a cell*; `polyp` under `colony` reads *a
+polyp is part of a colony*. If you cannot say "a X is part of a Y" out loud, X
+does not belong under Y.
 
-With a hierarchy, `acropora` is added *under* `coral`. Everything already
-annotated as `coral` stays valid and stays queryable as `coral`; the new
-annotations are simply more specific. **A class can be refined without discarding
-the annotations above it.**
+This is not a stylistic preference. The label tree is the schema that object
+nesting is validated against: **an object may only carry a label that is a direct
+child of the label on the object containing it.** A contour labelled `nucleus`
+can be drawn inside a contour labelled `cell` precisely because `nucleus` sits
+under `cell` in the tree. Get the tree wrong and the annotation you want becomes
+unsavable.
 
 <figure>
 --8<-- "assets/img/label-hierarchy.svg"
-<figcaption>One label tree, two levels of refinement deep. Nothing annotated
-against a parent is invalidated by adding a child beneath it.</figcaption>
+<figcaption>One label tree, two levels of containment deep. The tree declares
+what may be annotated inside what.</figcaption>
 </figure>
 
-The hierarchy is also what makes parent–child object relationships meaningful —
+So the hierarchy is what makes parent–child *object* relationships meaningful —
 see [Objects and annotations](objects.md) and the `n_children` metric in the
 [metric reference](../reference/metrics.md).
+
+## What nesting is not
+
+It does not express subtypes. `acropora` is not part of `coral`, it *is a* coral,
+so it does not belong nested underneath it — keep such classes as siblings at the
+same level. IQUANA has no way to record "is a kind of" yet; it is planned as an
+attribute rather than as a second meaning for nesting.
+
+Sibling labels should be mutually exclusive: one object is a `nucleus` or a
+`membrane`, never both. Nothing stops you from drawing two objects that overlap
+geometrically — [that is supported](objects.md#overlapping-objects) — but a
+single object carrying two sibling labels is not a thing the model can express.
 
 ## Ordering
 
 The hierarchy is not only descriptive. [Batch inference](../guides/batch-inference.md)
-walks the label tree in order, so parents are segmented before the children that
-are searched for inside them.
+walks the label tree in order, so containers are segmented before the parts
+searched for inside them.
 
 ## The LLM assistant
 
@@ -40,8 +53,8 @@ only of your description.
 
 <div class="iq-shot-todo">
   <span><strong>Recording slot — <code>label-hierarchy</code></strong><br>
-  Nest a child under a parent; re-label an object to the child; show the parent's
-  annotations still intact. Optionally the LLM draft.<br>
+  Nest a part under its container; draw the part inside the container object;
+  show the containment being accepted. Optionally the LLM draft.<br>
   10–14 s · dark theme · 1280×800</span>
 </div>
 

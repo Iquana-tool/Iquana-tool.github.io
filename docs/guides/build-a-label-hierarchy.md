@@ -2,16 +2,18 @@
 
 **You need:** the `curator` dataset role or higher (label management).
 
-You cannot save an annotation without a label. Labels nest — read
-[Label hierarchy](../concepts/labels.md) for why that matters.
+You cannot save an annotation without a label. Labels nest, and nesting means
+*part of* — read [Label hierarchy](../concepts/labels.md) for why that matters.
 
 ## Steps
 
-1. **Start coarse.** Define the top-level classes you are certain about. You can
-   refine them later without discarding what you have already annotated.
-2. **Nest the refinements underneath** as you learn them.
+1. **Start with the containers.** Define the whole objects first — the things
+   that other things sit inside. These are your top-level labels.
+2. **Nest each part under the thing it is part of.** Say it out loud before you
+   nest: *a nucleus is part of a cell*. If the sentence does not work, the label
+   belongs at the top level instead.
 3. **Check the order.** [Batch inference](batch-inference.md) walks the tree in
-   order, so parents are segmented before the children searched for inside them.
+   order, so containers are segmented before the parts searched for inside them.
 
 ## Using the LLM assistant
 
@@ -23,10 +25,15 @@ imagery.
 
 <div class="iq-shot-todo">
   <span><strong>Recording slot — <code>label-hierarchy</code></strong><br>
-  Nest a child under a parent → re-label an object to the child → the parent's
-  annotations still intact. Optionally the LLM draft.<br>
+  Nest a part under its container → draw the part inside the container object →
+  the containment is accepted. Optionally the LLM draft.<br>
   10–14 s · dark theme · 1280×800</span>
 </div>
+
+!!! warning "Nesting is not for subtypes"
+    `acropora` is a kind of `coral`, not a part of one, so it does not belong
+    nested under it. Keep subtypes as siblings at the same level — IQUANA cannot
+    record "is a kind of" yet.
 
 !!! warning "Label names are unique dataset-wide"
     Not merely among siblings. Two different parents cannot both have a child
