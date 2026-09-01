@@ -46,7 +46,9 @@ avoiding.
 ## Rearranging later
 
 A label can be moved under a different parent, or promoted back to the top level,
-from the label management page. Because nesting is what annotation validates
+from the label management page — drag it onto the label it is a part of, or use the
+move action on its row. While you drag, any destination that would cost you
+annotations says so, with the number, before you let go. Because nesting is what annotation validates
 against, a move can strand objects that were legal when they were drawn: an
 object labelled `nucleus` inside a `cell` stops being legal the moment `nucleus`
 becomes a part of something else.
