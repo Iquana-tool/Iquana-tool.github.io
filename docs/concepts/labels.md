@@ -33,10 +33,32 @@ so it does not belong nested underneath it — keep such classes as siblings at 
 same level. IQUANA has no way to record "is a kind of" yet; it is planned as an
 attribute rather than as a second meaning for nesting.
 
-Sibling labels should be mutually exclusive: one object is a `nucleus` or a
-`membrane`, never both. Nothing stops you from drawing two objects that overlap
-geometrically — [that is supported](objects.md#overlapping-objects) — but a
-single object carrying two sibling labels is not a thing the model can express.
+Sibling labels are semantically disjoint: one object is a `nucleus` or a
+`membrane`, never both, and a given piece of the image belongs to one semantic
+object. That is a claim about meaning, not about geometry — two objects may still
+[overlap in the image](objects.md#overlapping-objects), which is supported.
+
+Where they do overlap, though, one of them is really behind the other, and
+IQUANA has no way to record that: there is no depth axis, so the annotator has to
+predict where the hidden boundary runs. Unless you need that guess, it is worth
+avoiding.
+
+## Rearranging later
+
+A label can be moved under a different parent, or promoted back to the top level,
+from the label management page. Because nesting is what annotation validates
+against, a move can strand objects that were legal when they were drawn: an
+object labelled `nucleus` inside a `cell` stops being legal the moment `nucleus`
+becomes a part of something else.
+
+IQUANA refuses such a move and tells you how many objects it would affect. You
+can then accept the consequence explicitly, which **detaches** those objects —
+they keep their label and stop being nested inside anything. The containment is
+not restored by moving the label back, so it is worth checking the count before
+confirming.
+
+Moves that strand nothing — the common case, since a label space is usually
+rearranged early — just happen.
 
 ## Ordering
 

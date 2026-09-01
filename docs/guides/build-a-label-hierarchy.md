@@ -12,7 +12,12 @@ You cannot save an annotation without a label. Labels nest, and nesting means
 2. **Nest each part under the thing it is part of.** Say it out loud before you
    nest: *a nucleus is part of a cell*. If the sentence does not work, the label
    belongs at the top level instead.
-3. **Check the order.** [Batch inference](batch-inference.md) walks the tree in
+3. **Rearrange when you learn better.** Use the move action on a label's row to
+   make it a part of something else, or to promote it back to the top level. If
+   objects are already annotated in a way the move would break, you are told how
+   many before anything changes — see
+   [Rearranging later](../concepts/labels.md#rearranging-later).
+4. **Check the order.** [Batch inference](batch-inference.md) walks the tree in
    order, so containers are segmented before the parts searched for inside them.
 
 ## Using the LLM assistant
