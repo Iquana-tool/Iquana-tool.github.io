@@ -75,12 +75,13 @@ configured, IQUANA can draft a hierarchy from a description of your domain. It i
 a starting point to edit, not an authority — it has no knowledge of your imagery,
 only of your description.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>label-hierarchy</code></strong><br>
-  Nest a part under its container; draw the part inside the container object;
-  show the containment being accepted. Optionally the LLM draft.<br>
-  10–14 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/label-hierarchy.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/label-hierarchy.webm" type="video/webm">
+    <source src="../../assets/media/label-hierarchy.mp4" type="video/mp4">
+  </video>
+  <figcaption>Nest a part under its container; draw the part inside the container object; show the containment being accepted. Optionally the LLM draft.</figcaption>
+</figure>
 
 ## Naming
 

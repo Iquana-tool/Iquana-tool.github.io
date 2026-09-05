@@ -30,12 +30,13 @@ Rejected objects resolve as one of:
     from nobody having looked. That difference is what lets you state the
     annotation quality of a dataset later.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>review-queue</code></strong><br>
-  Setup → sort strategy → session → one <em>fixed</em>, one <em>wont_fix</em> →
-  queue progress.<br>
-  14–18 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/review-queue.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/review-queue.webm" type="video/webm">
+    <source src="../../assets/media/review-queue.mp4" type="video/mp4">
+  </video>
+  <figcaption>Setup → sort strategy → session → one <em>fixed</em>, one <em>wont_fix</em> → queue progress.</figcaption>
+</figure>
 
 ## Correcting
 
@@ -44,10 +45,12 @@ The correction pass is where rejected objects get fixed, using the same
 separable from human edits throughout, so a corrected annotation knows it was
 corrected and by whom.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>correction-pass</code></strong><br>
-  Correction queue → fix a bad contour → model output vs. human edit distinguishable.<br>
-  10–14 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/correction-pass.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/correction-pass.webm" type="video/webm">
+    <source src="../../assets/media/correction-pass.mp4" type="video/mp4">
+  </video>
+  <figcaption>Correction queue → fix a bad contour → model output vs. human edit distinguishable.</figcaption>
+</figure>
 
 **Next:** [Train a model](train-a-model.md) on what you just corrected.

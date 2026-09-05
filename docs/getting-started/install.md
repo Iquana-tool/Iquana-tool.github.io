@@ -56,7 +56,7 @@ and training run on the CPU, which is slow enough to change how you work. See
 ./install.sh --no-start      set everything up, but do not start the services
 ```
 
-<div class="iq-cast" data-cast="../assets/media/install.cast"></div>
+<div class="iq-cast" data-cast="../../assets/media/install.cast"></div>
 
 <figcaption class="iq-caption">
 A real install, recorded with <code>asciinema</code>. The text is selectable —

@@ -48,12 +48,13 @@ the `unit_kind` column in the [metric reference](../reference/metrics.md):
 - **area** metrics come out in the unit squared
 - **ratio**, **count**, **colour** and **intensity** metrics are unaffected by calibration
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>calibration</code></strong><br>
-  Measure-scale tool across a scale bar → enter the real distance → object stats
-  flip from px to mm.<br>
-  8–10 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/calibration.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/calibration.webm" type="video/webm">
+    <source src="../../assets/media/calibration.mp4" type="video/mp4">
+  </video>
+  <figcaption>Measure-scale tool across a scale bar → enter the real distance → object stats flip from px to mm.</figcaption>
+</figure>
 
 !!! warning "Calibrate before you quantify at scale"
     Metrics computed before calibration are in pixels. Calibrating afterwards is

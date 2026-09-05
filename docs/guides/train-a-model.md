@@ -17,11 +17,13 @@ loop starts from a better model.
 The registered model then becomes selectable in
 [batch inference](batch-inference.md) and in the model zoo.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>training-run</code></strong><br>
-  Training modal → submit → job card progressing → resulting metrics / registered version.<br>
-  14–18 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/training-run.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/training-run.webm" type="video/webm">
+    <source src="../../assets/media/training-run.mp4" type="video/mp4">
+  </video>
+  <figcaption>Training modal → submit → job card progressing → resulting metrics / registered version.</figcaption>
+</figure>
 
 <div class="iq-shot-todo">
   <span><strong>Recording slot — <code>model-zoo</code></strong><br>

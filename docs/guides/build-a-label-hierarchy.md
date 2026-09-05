@@ -28,12 +28,13 @@ configured, IQUANA can draft a hierarchy from a description of your domain.
 Treat the draft as a starting point to edit. It knows your description, not your
 imagery.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>label-hierarchy</code></strong><br>
-  Nest a part under its container → draw the part inside the container object →
-  the containment is accepted. Optionally the LLM draft.<br>
-  10–14 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/label-hierarchy.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/label-hierarchy.webm" type="video/webm">
+    <source src="../../assets/media/label-hierarchy.mp4" type="video/mp4">
+  </video>
+  <figcaption>Nest a part under its container → draw the part inside the container object → the containment is accepted. Optionally the LLM draft.</figcaption>
+</figure>
 
 !!! warning "Nesting is not for subtypes"
     `acropora` is a kind of `coral`, not a part of one, so it does not belong

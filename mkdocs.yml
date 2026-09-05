@@ -66,6 +66,8 @@ extra_css:
 extra_javascript:
   - assets/vendor/asciinema-player.min.js
   - assets/js/iquana-cast.js
+  # Reduced-motion handling and off-screen pausing for the embedded clips.
+  - assets/js/iquana-media.js
 
 markdown_extensions:
   - abbr

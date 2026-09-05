@@ -19,12 +19,13 @@ Until an image is calibrated, its measurements are in **pixels**. Read
 
 ++esc++ cancels a measurement in progress.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>calibration</code></strong><br>
-  Measure-scale across a scale bar → enter the real distance → object stats flip
-  from px to mm.<br>
-  8–10 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/calibration.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/calibration.webm" type="video/webm">
+    <source src="../../assets/media/calibration.mp4" type="video/mp4">
+  </video>
+  <figcaption>Measure-scale across a scale bar → enter the real distance → object stats flip from px to mm.</figcaption>
+</figure>
 
 ## Per-dataset defaults
 

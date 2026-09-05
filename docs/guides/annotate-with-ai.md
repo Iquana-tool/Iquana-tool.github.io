@@ -26,11 +26,13 @@ usually faster than editing the contour afterwards.
 3. If the mask grabbed too much, add a **negative** prompt and run again.
 4. Accept the result, then assign a label with ++l++.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>prompt-vocabulary</code></strong><br>
-  Positive point → negative point corrects an over-segment → box → polygon → freehand.<br>
-  12–15 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/prompt-vocabulary.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/prompt-vocabulary.webm" type="video/webm">
+    <source src="../../assets/media/prompt-vocabulary.mp4" type="video/mp4">
+  </video>
+  <figcaption>Positive point → negative point corrects an over-segment → box → polygon → freehand.</figcaption>
+</figure>
 
 ## Controlling what a prompt does
 

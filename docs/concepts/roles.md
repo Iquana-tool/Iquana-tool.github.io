@@ -91,12 +91,13 @@ new role for them.
 Redeeming an invite never *downgrades* an existing member: roles are ranked, and
 the higher of the two is kept.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>access-and-roles</code></strong><br>
-  Dataset access page → create an invite → assign a role → the same surface seen as
-  an annotator vs. a curator.<br>
-  12–16 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/access-and-roles.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/access-and-roles.webm" type="video/webm">
+    <source src="../../assets/media/access-and-roles.mp4" type="video/mp4">
+  </video>
+  <figcaption>Dataset access page → create an invite → assign a role → the same surface seen as an annotator vs. a curator.</figcaption>
+</figure>
 
 !!! note "The first account"
     The first account created on an installation becomes the platform

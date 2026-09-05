@@ -51,15 +51,18 @@ Model output stays separable from human edits throughout. A corrected annotation
 knows it was corrected, and by whom — see [Roles and permissions](roles.md) for
 how attribution works across a team.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>review-queue</code></strong><br>
-  Review setup → pick a sort strategy → session → one <em>fixed</em>, one
-  <em>wont_fix</em> → progress through the queue.<br>
-  14–18 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/review-queue.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/review-queue.webm" type="video/webm">
+    <source src="../../assets/media/review-queue.mp4" type="video/mp4">
+  </video>
+  <figcaption>Review setup → pick a sort strategy → session → one <em>fixed</em>, one <em>wont_fix</em> → progress through the queue.</figcaption>
+</figure>
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>correction-pass</code></strong><br>
-  Correction queue → fix a bad contour → model output vs. human edit staying distinguishable.<br>
-  10–14 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/correction-pass.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/correction-pass.webm" type="video/webm">
+    <source src="../../assets/media/correction-pass.mp4" type="video/mp4">
+  </video>
+  <figcaption>Correction queue → fix a bad contour → model output vs. human edit staying distinguishable.</figcaption>
+</figure>

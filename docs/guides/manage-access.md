@@ -13,12 +13,13 @@ someone is the whole decision.
 3. Send the invite link to the person.
 4. They redeem it and appear as a member.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>access-and-roles</code></strong><br>
-  Access page → create an invite → assign a role → the same surface as annotator
-  vs. curator.<br>
-  12–16 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/access-and-roles.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/access-and-roles.webm" type="video/webm">
+    <source src="../../assets/media/access-and-roles.mp4" type="video/mp4">
+  </video>
+  <figcaption>Access page → create an invite → assign a role → the same surface as annotator vs. curator.</figcaption>
+</figure>
 
 ## Choosing a role
 

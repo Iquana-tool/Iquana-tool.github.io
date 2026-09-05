@@ -14,11 +14,13 @@ instead of image by image.
 4. Start the run, and watch the progress panel. The work is queued to a Celery
    worker, so you can leave the page.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>batch-inference</code></strong><br>
-  Per-label model planner → write mode → start → progress panel running.<br>
-  14–18 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/batch-inference.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/batch-inference.webm" type="video/webm">
+    <source src="../../assets/media/batch-inference.mp4" type="video/mp4">
+  </video>
+  <figcaption>Per-label model planner → write mode → start → progress panel running.</figcaption>
+</figure>
 
 ## Patch vs. replace
 

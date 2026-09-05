@@ -13,11 +13,13 @@ Most annotation tools stop at the mask. IQUANA carries the same objects through
 measurement and review, so what you export is an analysis rather than a pile of
 polygons — and every number stays traceable to the object it came from.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>hero-prompt-to-mask</code></strong><br>
-  A point prompt lands on an object, the mask blooms in, it is accepted and labelled.<br>
-  6–8 s · silent loop · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="assets/media/hero-prompt-to-mask.png" autoplay muted loop playsinline preload="none">
+    <source src="assets/media/hero-prompt-to-mask.webm" type="video/webm">
+    <source src="assets/media/hero-prompt-to-mask.mp4" type="video/mp4">
+  </video>
+  <figcaption>A point prompt lands on an object, the mask blooms in, it is accepted and labelled.</figcaption>
+</figure>
 
 ## Where to start
 

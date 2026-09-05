@@ -53,9 +53,10 @@ The quantification page presents summary cards, distributions and a label tree
 for the dataset as a whole, and drills down to per-image and per-object values.
 From there the measurements can be exported for your own analysis.
 
-<div class="iq-shot-todo">
-  <span><strong>Recording slot — <code>quantify-explore</code></strong><br>
-  Profile selector → summary metric cards → a distribution → per-image drilldown →
-  download the report.<br>
-  15–20 s · dark theme · 1280×800</span>
-</div>
+<figure class="iq-media">
+  <video poster="../../assets/media/quantify-explore.png" autoplay muted loop playsinline preload="none">
+    <source src="../../assets/media/quantify-explore.webm" type="video/webm">
+    <source src="../../assets/media/quantify-explore.mp4" type="video/mp4">
+  </video>
+  <figcaption>Profile selector → summary metric cards → a distribution → per-image drilldown → download the report.</figcaption>
+</figure>
