@@ -27,20 +27,26 @@ appear on the sign-in page — *"Welcome to HIFMB Reef Lab"*, *"hosted by …"*,
 *"Request access from …"* — and all three are optional. Leave them empty and the
 page simply reads as IQUANA.
 
-The same section asks whether **self-registration** is allowed. It is **off by
-default**, so an installation reachable from your network does not accept
-strangers unless you say so; with it off, you create accounts and hand them out.
-The *first* account can always be created either way.
-
 ??? info "Why these live in the backend's configuration, not the frontend's"
-    Two reasons. The registration policy has to be enforced by the API — a
-    sign-in page that merely hides the link is not a closed door. And Vite bakes
-    frontend variables in at build time, which would mean rebuilding the frontend
-    to correct a typo in your instance name.
+    Vite bakes frontend variables in at build time, which would mean rebuilding
+    the frontend to correct a typo in your instance name.
 
     The sign-in page reads them from `GET /instance/` at runtime, so
     `./install.sh --reconfigure` followed by a backend restart is enough to
     change them.
+
+## Accounts
+
+There is **no self-registration**. The installer asks for an admin username
+(default `admin`), creates that account with a generated password and shows the
+password **once**, at the end of the run. Sign in with it; you are asked to choose
+your own password straight away. That admin creates every other account on the
+admin page, and each new account also has to pick its own password at the first
+sign-in. Re-running the installer never touches an existing admin.
+
+!!! tip "Locked out?"
+    `cd backend && uv run python scripts/create_admin.py <username> <new password>`
+    resets that account's password and makes it an admin again.
 
 ## Serving IQUANA to other machines
 

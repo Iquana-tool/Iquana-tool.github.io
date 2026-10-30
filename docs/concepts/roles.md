@@ -100,6 +100,6 @@ the higher of the two is kept.
 </figure>
 
 !!! note "The first account"
-    The first account created on an installation becomes the platform
-    administrator, whether or not self-registration is enabled. See
-    [Configuration](../getting-started/configuration.md#identifying-your-instance).
+    There is no self-registration. The installer creates the first platform
+    administrator, and that admin creates every other account. See
+    [Configuration → accounts](../getting-started/configuration.md#accounts).

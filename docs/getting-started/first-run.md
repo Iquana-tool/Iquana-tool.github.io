@@ -14,16 +14,16 @@ If something is missing, its log is in `logs/` — see
 
 Open **<http://localhost:3000>**.
 
-## 2. Create the first account
+## 2. Sign in as the admin
 
-The **first** account can always be created, whether or not self-registration is
-allowed — a fresh installation is never locked out of itself. Create it now; it
-becomes the platform administrator.
+The installer created the platform administrator and printed its username and a
+one-time password at the end of the run. Sign in with them and choose your own
+password when asked.
 
-If other people will use this installation, read
+There is no self-registration: if other people will use this installation, create
+their accounts on the admin page. Read
 [Configuration → identifying your instance](configuration.md#identifying-your-instance)
-before handing out the address, and decide deliberately whether strangers may
-register themselves. Self-registration is **off** by default.
+before handing out the address, so the sign-in page says whom to ask for an account.
 
 ## 3. Create a dataset and upload images
 

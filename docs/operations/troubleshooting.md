@@ -75,9 +75,9 @@ Also check that the host's firewall allows the frontend and backend ports.
 
 ### People cannot create accounts
 
-Self-registration is **off by default**. Either enable it via
-`./install.sh --reconfigure`, or create the accounts yourself and hand them out.
-The *first* account can always be created either way.
+That is by design: there is no self-registration. An admin creates accounts on the
+admin page. Lost the admin password? See
+[Configuration → accounts](../getting-started/configuration.md#accounts).
 
 ## Reporting a bug
 
