@@ -133,6 +133,7 @@ nav:
       - Annotate with AI: guides/annotate-with-ai.md
       - Draw and refine manually: guides/draw-and-refine.md
       - Calibrate to physical units: guides/calibrate.md
+      - Build an annotation queue: guides/annotation-queue.md
       - Run batch inference: guides/batch-inference.md
       - Review and correct: guides/review-and-correct.md
       - Quantify and export: guides/quantify-and-export.md
