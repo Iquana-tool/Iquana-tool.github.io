@@ -100,6 +100,6 @@ the higher of the two is kept.
 </figure>
 
 !!! note "The first account"
-    There is no self-registration. The installer creates the first platform
-    administrator, and that admin creates every other account. See
+    There is no open sign-up. The installer creates the first platform
+    administrator, who creates the other accounts or sends registration links. See
     [Configuration → accounts](../getting-started/configuration.md#accounts).

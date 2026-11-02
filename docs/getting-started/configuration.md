@@ -37,12 +37,20 @@ page simply reads as IQUANA.
 
 ## Accounts
 
-There is **no self-registration**. The installer asks for an admin username
+There is **no open sign-up**. The installer asks for an admin username
 (default `admin`), creates that account with a generated password and shows the
 password **once**, at the end of the run. Sign in with it; you are asked to choose
-your own password straight away. That admin creates every other account on the
-admin page, and each new account also has to pick its own password at the first
-sign-in. Re-running the installer never touches an existing admin.
+your own password straight away. Re-running the installer never touches an existing
+admin.
+
+The admin then gives other people accounts on the admin page, in one of two ways:
+
+- **Create the account** with a password you choose and pass on. Its holder has to
+  pick their own at the first sign-in.
+- **Send a registration link.** Whoever follows it chooses their own username and
+  password. A link is single-use and valid for 7 days by default, can be revoked,
+  and is shown only once when you create it. The account is a platform member in no
+  dataset until it is invited to one.
 
 !!! tip "Locked out?"
     `cd backend && uv run python scripts/create_admin.py <username> <new password>`

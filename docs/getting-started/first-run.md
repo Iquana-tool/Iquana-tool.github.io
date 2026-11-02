@@ -20,8 +20,8 @@ The installer created the platform administrator and printed its username and a
 one-time password at the end of the run. Sign in with them and choose your own
 password when asked.
 
-There is no self-registration: if other people will use this installation, create
-their accounts on the admin page. Read
+There is no open sign-up: if other people will use this installation, create their
+accounts on the admin page or send them registration links. Read
 [Configuration → identifying your instance](configuration.md#identifying-your-instance)
 before handing out the address, so the sign-in page says whom to ask for an account.
 
