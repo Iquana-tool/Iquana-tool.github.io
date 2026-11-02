@@ -48,6 +48,7 @@ member cannot accidentally demote them.
 
 ## Platform-level accounts
 
-Creating accounts, setting global roles and deciding whether self-registration is
-allowed are platform concerns, not dataset ones. See
-[Configuration](../getting-started/configuration.md#identifying-your-instance).
+Creating accounts, sending registration links and setting global roles are platform
+concerns, not dataset ones: an admin does all three on the admin page. There is no open
+sign-up. See
+[Configuration → accounts](../getting-started/configuration.md#accounts).
